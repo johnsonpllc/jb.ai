@@ -1,0 +1,59 @@
+# JB.AI — Apache Configuration
+# Upload this file as: public_html/jb.ai/.htaccess
+
+# ── SECURITY: Block direct access to config.php ──
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# ── SECURITY: Block access to any .env files ──
+<Files ".env">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# ── SECURITY: Block directory listings ──
+Options -Indexes
+
+# ── SECURITY: Hide server info ──
+ServerSignature Off
+
+# ── GZIP COMPRESSION for faster load times ──
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript
+</IfModule>
+
+# ── BROWSER CACHING ──
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+# ── SECURITY HEADERS ──
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── CLEAN URLS: /jb.ai/audit → /jb.ai/audit/index.html ──
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /jb.ai/
+
+    # If requesting a directory without trailing slash, add it
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} !/$
+    RewriteRule ^(.+)$ $1/ [R=301,L]
+
+    # Serve index.html for clean directory URLs
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME}/index.html -f
+    RewriteRule ^(.+)/$ $1/index.html [L]
+</IfModule>

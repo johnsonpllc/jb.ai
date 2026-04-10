@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free AI Audit — JB.AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<script>
+  // All API calls go to proxy.php — never directly to Anthropic
+  const API_URL = '/jb.ai/proxy.php';
+</script>
+<style>
+/* Paste full audit CSS here — identical to ai-audit.jsx styles converted */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#07090f;color:#e8eaf2;font-family:'DM Sans',sans-serif;min-height:100vh;}
+.back-link{position:fixed;top:16px;left:20px;z-index:100;color:#7a849c;text-decoration:none;font-size:.82rem;display:flex;align-items:center;gap:5px;transition:color .2s;}
+.back-link:hover{color:#e8eaf2;}
+</style>
+</head>
+<body>
+<a href="/jb.ai/" class="back-link">← Back to JB.AI</a>
+
+<!-- The full audit app renders here -->
+<div id="audit-root"></div>
+
+<script>
+/**
+ * JB.AI AI Audit Tool
+ * API calls route through /jb.ai/proxy.php (secure, server-side key)
+ */
+
+const QUESTIONS = [
+  { section:"Business Info", icon:"🏢", questions:[
+    {id:"bizName",label:"Business Name",type:"text",placeholder:"e.g. Johnson's Hardware"},
+    {id:"industry",label:"What type of business are you?",type:"select",options:["Restaurant / Food Service","Retail Shop","Salon / Spa / Beauty","Contractor / Trades","Legal / Accounting","Medical / Dental","Real Estate","Gym / Fitness","Other Service Business"]},
+    {id:"employees",label:"How many employees (including yourself)?",type:"radio",options:["Just me","2–5","6–15","16–50","50+"]},
+    {id:"revenue",label:"Annual revenue range",type:"radio",options:["Under $100k","$100k–$500k","$500k–$1M","$1M–$5M","$5M+"]},
+  ]},
+  { section:"Customer Service", icon:"💬", questions:[
+    {id:"responseTime",label:"How quickly do you respond to new inquiries?",type:"radio",options:["Within the hour","Same day","Next business day","Longer than a day","Inconsistent"]},
+    {id:"hasChatbot",label:"Do you have a chatbot or automated response system?",type:"radio",options:["Yes, fully set up","In progress / basic","No, handle everything manually"]},
+    {id:"afterHours",label:"What happens to inquiries after business hours?",type:"radio",options:["Automated system responds","Goes to voicemail / email and waits","We miss them"]},
+  ]},
+  { section:"Marketing", icon:"📣", questions:[
+    {id:"socialFreq",label:"How often do you post on social media?",type:"radio",options:["Daily or more","Several times a week","About once a week","Occasionally","Rarely or never"]},
+    {id:"emailList",label:"Do you have an email list?",type:"radio",options:["Yes, active and growing","Yes, but rarely use it","No email list"]},
+    {id:"trackMarketing",label:"Do you track your marketing results?",type:"radio",options:["Yes, with detailed metrics","Rough idea of what works","No, not really"]},
+  ]},
+  { section:"Operations", icon:"⚙️", questions:[
+    {id:"dataEntryTime",label:"Weekly time spent on manual data entry?",type:"radio",options:["Less than 1 hour","1–3 hours","3–8 hours","More than 8 hours"]},
+    {id:"adminTime",label:"Total weekly time on admin tasks?",type:"radio",options:["Under 2 hours","2–5 hours","5–10 hours","More than 10 hours"]},
+    {id:"currentTools",label:"What software do you currently use?",type:"text",placeholder:"e.g. QuickBooks, Google Calendar, Square..."},
+  ]},
+  { section:"Finance", icon:"💰", questions:[
+    {id:"invoicing",label:"How do you handle invoicing?",type:"radio",options:["Automated via software","Manually (Word/Excel)","A mix","N/A — point of sale"]},
+    {id:"bookkeepingTime",label:"Monthly bookkeeping time?",type:"radio",options:["Under 2 hours","2–5 hours","5–10 hours","10+ hours","External accountant only"]},
+  ]},
+  { section:"Scheduling", icon:"📅", questions:[
+    {id:"bookingMethod",label:"How do clients book appointments?",type:"radio",options:["Online booking (automated)","Phone or email only","Walk-in only","Mix of phone and online","N/A — not appointment-based"]},
+    {id:"reminders",label:"Do you send appointment reminders?",type:"radio",options:["Automated reminders","Manual reminders","No reminders","N/A"]},
+  ]},
+  { section:"Online Presence", icon:"🌐", questions:[
+    {id:"website",label:"Do you have a website?",type:"radio",options:["Yes, professional and updated","Yes, but outdated or basic","No website"]},
+    {id:"googleBiz",label:"Is your Google Business Profile up to date?",type:"radio",options:["Yes, fully set up","Claimed but incomplete","No / not sure"]},
+    {id:"reviewMgmt",label:"How do you manage online reviews?",type:"radio",options:["Actively monitor and respond","Check occasionally","Rarely or never"]},
+  ]},
+];
+
+let currentSection = 0;
+let answers = {};
+let screen = 'intro'; // intro | questions | analyzing | report
+
+function render() {
+  const root = document.getElementById('audit-root');
+  if(screen === 'intro') root.innerHTML = renderIntro();
+  else if(screen === 'questions') root.innerHTML = renderQuestions();
+  else if(screen === 'analyzing') root.innerHTML = renderAnalyzing();
+  else if(screen === 'report') root.innerHTML = renderReport();
+}
+
+function renderIntro() {
+  return `<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;text-align:center;">
+    <div style="max-width:600px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:#f59e0b;font-size:.75rem;font-weight:700;letter-spacing:.1em;padding:6px 15px;border-radius:100px;margin-bottom:28px;text-transform:uppercase;">
+        <span style="width:6px;height:6px;background:#f59e0b;border-radius:50%;animation:pulse 2s infinite;display:inline-block;"></span>Free AI Audit — JB.AI
+      </div>
+      <h1 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1.08;margin-bottom:20px;">Discover Your Business's<br/><span style="color:#f59e0b;">AI Potential</span></h1>
+      <p style="color:#7a849c;font-size:1rem;line-height:1.75;margin-bottom:40px;max-width:460px;margin-left:auto;margin-right:auto;">Answer 20 questions about how your business operates. We'll generate a personalized AI Readiness Score with your top quick wins.</p>
+      <div style="display:flex;gap:32px;justify-content:center;margin-bottom:40px;flex-wrap:wrap;">
+        ${[['⏱️','~10 min','to complete'],['🤖','AI-powered','personalized report'],['💰','ROI estimate','included free']].map(([i,b,s])=>`<div style="text-align:center;"><div style="font-size:1.6rem;margin-bottom:6px;">${i}</div><div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;color:#e8eaf2;font-size:.9rem;">${b}</div><div style="color:#7a849c;font-size:.75rem;">${s}</div></div>`).join('')}
+      </div>
+      <button onclick="screen='questions';currentSection=0;render();" style="background:#f59e0b;color:#000;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;padding:16px 44px;border-radius:12px;border:none;cursor:pointer;letter-spacing:.04em;">Start My Free Audit →</button>
+      <p style="color:#7a849c;font-size:.75rem;margin-top:14px;">No email required · No sales calls · Just insights</p>
+    </div>
+  </div><style>@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}</style>`;
+}
+
+function renderQuestions() {
+  const sec = QUESTIONS[currentSection];
+  const total = QUESTIONS.length;
+  const pct = Math.round((currentSection/total)*100);
+  const complete = sec.questions.every(q => q.type==='text'?((answers[q.id]||'').trim().length>0||q.optional):q.type==='multi'?((answers[q.id]||[]).length>0):!!answers[q.id]);
+
+  return `<div style="max-width:680px;margin:0 auto;padding:80px 20px 40px;">
+    <div style="background:#0e1120;border-bottom:1px solid rgba(255,255,255,.07);padding:14px 0 16px;margin-bottom:32px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:.78rem;color:#7a849c;">
+        <span>${sec.icon} ${sec.section}</span><span>${currentSection+1} / ${total}</span>
+      </div>
+      <div style="display:flex;gap:4px;">
+        ${QUESTIONS.map((_,i)=>`<div style="flex:1;height:4px;border-radius:100px;background:${i<currentSection?'#f59e0b':i===currentSection?'#fbbf24':'#141828'};transition:background .3s;"></div>`).join('')}
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      ${sec.questions.map((q,qi)=>renderQuestion(q,qi)).join('')}
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;">
+      <button onclick="${currentSection>0?'currentSection--;render()':'screen=\"intro\";render()'}" style="background:transparent;color:#7a849c;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:.88rem;padding:11px 22px;border-radius:10px;border:1px solid rgba(255,255,255,.07);cursor:pointer;">← Back</button>
+      <button onclick="${complete?(currentSection<QUESTIONS.length-1?'currentSection++;render()':'runAudit()'):'void(0)'}" style="background:${complete?'#f59e0b':'#141828'};color:${complete?'#000':'#7a849c'};font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:.92rem;padding:12px 30px;border-radius:10px;border:none;cursor:${complete?'pointer':'not-allowed'};letter-spacing:.04em;">${currentSection===QUESTIONS.length-1?'Generate My Report →':'Continue →'}</button>
+    </div>
+  </div>`;
+}
+
+function renderQuestion(q, qi) {
+  const val = answers[q.id];
+  let input = '';
+  if(q.type==='text') input=`<input type="text" value="${val||''}" placeholder="${q.placeholder||''}" oninput="answers['${q.id}']=this.value;renderAnswerUpdate()" style="width:100%;background:#0e1120;border:1px solid rgba(255,255,255,.07);color:#e8eaf2;font-family:'DM Sans',sans-serif;font-size:.92rem;padding:12px 15px;border-radius:10px;outline:none;"/>`;
+  else if(q.type==='select') input=`<select onchange="answers['${q.id}']=this.value;renderAnswerUpdate()" style="width:100%;background:#0e1120;border:1px solid rgba(255,255,255,.07);color:${val?'#e8eaf2':'#7a849c'};font-family:'DM Sans',sans-serif;font-size:.9rem;padding:12px 15px;border-radius:10px;outline:none;cursor:pointer;"><option value="">Select...</option>${(q.options||[]).map(o=>`<option value="${o}"${val===o?' selected':''}>${o}</option>`).join('')}</select>`;
+  else if(q.type==='radio') input=`<div style="display:flex;flex-direction:column;gap:8px;">${(q.options||[]).map(o=>`<label onclick="answers['${q.id}']='${o}';renderAnswerUpdate()" style="display:flex;align-items:center;gap:12px;background:${val===o?'rgba(245,158,11,.1)':'#0e1120'};border:1px solid ${val===o?'rgba(245,158,11,.35)':'rgba(255,255,255,.07)'};border-radius:10px;padding:11px 15px;cursor:pointer;transition:all .2s;"><div style="width:17px;height:17px;border-radius:50%;border:2px solid ${val===o?'#f59e0b':'#7a849c'};display:flex;align-items:center;justify-content:center;flex-shrink:0;">${val===o?`<div style="width:7px;height:7px;border-radius:50%;background:#f59e0b;"></div>`:''}</div><span style="font-size:.88rem;color:${val===o?'#e8eaf2':'#7a849c'};">${o}</span></label>`).join('')}</div>`;
+  return `<div style="background:rgba(20,24,40,.85);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:26px;">
+    <label style="font-family:'Barlow Semi Condensed',sans-serif;font-size:.95rem;font-weight:700;color:#e8eaf2;display:block;margin-bottom:16px;">${qi+1}. ${q.label}</label>
+    ${input}
+  </div>`;
+}
+
+function renderAnswerUpdate() { /* triggers re-render of just buttons */ }
+
+function renderAnalyzing() {
+  return `<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;">
+    <div style="width:72px;height:72px;position:relative;margin-bottom:28px;">
+      <svg width="72" height="72" viewBox="0 0 72 72" style="animation:spin 2s linear infinite;">
+        <circle cx="36" cy="36" r="28" fill="none" stroke="#141828" stroke-width="8"/>
+        <circle cx="36" cy="36" r="28" fill="none" stroke="#f59e0b" stroke-width="8" stroke-dasharray="176" stroke-dashoffset="130" stroke-linecap="round"/>
+      </svg>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:24px;">🤖</div>
+    </div>
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.7rem;font-weight:800;margin-bottom:10px;">Analyzing Your Business</h2>
+    <p style="color:#f59e0b;font-weight:600;" id="analyzing-msg">Reading your responses...</p>
+    <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+  </div>`;
+}
+
+let reportData = null;
+
+function renderReport() {
+  if(!reportData) return '<div style="text-align:center;padding:80px;">Loading...</div>';
+  const r = reportData;
+  const oc = r.overallScore>=75?'#34d399':r.overallScore>=50?'#f59e0b':'#ff4d6d';
+  const circ = 2*Math.PI*54;
+  const dash = circ - (r.overallScore/100)*circ;
+  const cats = r.categories||{};
+  const catList = [['Customer Service',cats.customerService,'💬'],['Marketing',cats.marketing,'📣'],['Operations',cats.operations,'⚙️'],['Finance',cats.finance,'💰'],['Scheduling',cats.scheduling,'📅'],['Online Presence',cats.onlinePresence,'🌐']];
+
+  return `<div style="max-width:920px;margin:0 auto;padding:80px 20px 60px;">
+    <div style="text-align:center;margin-bottom:12px;"><a href="/jb.ai/" style="color:#7a849c;text-decoration:none;font-size:.82rem;">← Back to JB.AI</a></div>
+    <div style="background:rgba(20,24,40,.85);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:36px;margin-bottom:24px;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;">
+      <div style="text-align:center;">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="54" fill="none" stroke="#141828" stroke-width="12"/>
+          <circle cx="65" cy="65" r="54" fill="none" stroke="${oc}" stroke-width="12" stroke-dasharray="${circ.toFixed(1)}" stroke-dashoffset="${dash.toFixed(1)}" stroke-linecap="round" transform="rotate(-90 65 65)"/>
+          <text x="65" y="60" text-anchor="middle" fill="#e8eaf2" font-size="26" font-weight="800" font-family="Barlow Semi Condensed">${r.overallScore}</text>
+          <text x="65" y="78" text-anchor="middle" fill="#7a849c" font-size="11">/100</text>
+        </svg>
+        <div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;color:${oc};margin-top:6px;">${r.readinessLevel}</div>
+      </div>
+      <div>
+        <div style="font-family:'Barlow Semi Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f59e0b;margin-bottom:6px;">AI Readiness Report · JB.AI</div>
+        <h1 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:14px;">${r.businessName||answers.bizName}</h1>
+        <p style="color:#7a849c;line-height:1.75;margin-bottom:20px;font-size:.93rem;">${r.executiveSummary}</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          ${[['💰 Est. Annual Savings',r.totalAnnualSavings,'#f59e0b'],['⏰ Weekly Hours Saved',r.totalWeeklyHoursSaved,'#14b8a6']].map(([l,v,c])=>`<div style="background:#0e1120;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:14px 18px;"><div style="font-size:.78rem;color:#7a849c;margin-bottom:5px;">${l}</div><div style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.6rem;font-weight:800;color:${c};">${v}</div></div>`).join('')}
+        </div>
+      </div>
+    </div>
+    <div style="background:rgba(20,24,40,.85);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px;margin-bottom:24px;">
+      <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:20px;">Score by Category</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+        ${catList.map(([name,cat,icon])=>{const sc=cat?.score||0;const c=sc>=70?'#34d399':sc>=40?'#f59e0b':'#ff4d6d';return `<div style="background:#0e1120;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:18px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;"><span style="font-size:.88rem;font-weight:600;color:#e8eaf2;">${icon} ${name}</span><span style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;color:${c};font-size:1.05rem;">${sc}</span></div><div style="background:#141828;border-radius:100px;height:6px;overflow:hidden;margin-bottom:8px;"><div style="width:${sc}%;height:100%;background:linear-gradient(90deg,#14b8a6,${c});border-radius:100px;"></div></div><p style="font-size:.78rem;color:#7a849c;">${cat?.insight||''}</p></div>`;}).join('')}
+      </div>
+    </div>
+    <div style="margin-bottom:24px;">
+      <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:16px;">⚡ Your Top Quick Wins</h3>
+      ${(r.quickWins||[]).map((w,i)=>`<div style="background:rgba(20,24,40,.85);border:1px solid ${i===0?'rgba(245,158,11,.4)':'rgba(255,255,255,.07)'};border-radius:14px;padding:24px;margin-bottom:12px;"><div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;"><div style="flex:1;"><div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;"><span style="background:#f59e0b;color:#000;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.72rem;padding:3px 10px;border-radius:100px;">#${i+1} Priority</span><span style="background:#0e1120;color:#7a849c;font-size:.72rem;padding:3px 10px;border-radius:100px;border:1px solid rgba(255,255,255,.07);">${w.category}</span></div><h4 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:8px;">${w.title}</h4><p style="font-size:.86rem;color:#7a849c;line-height:1.65;">${w.description}</p></div><div style="display:flex;flex-direction:column;gap:8px;min-width:130px;"><div style="background:#0e1120;border-radius:8px;padding:10px 14px;text-align:center;"><div style="font-size:.7rem;color:#7a849c;margin-bottom:3px;">Annual Savings</div><div style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.1rem;font-weight:800;color:#f59e0b;">${w.annualSavings}</div></div><div style="background:#0e1120;border-radius:8px;padding:10px 14px;text-align:center;"><div style="font-size:.7rem;color:#7a849c;margin-bottom:3px;">Time Saved</div><div style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.1rem;font-weight:800;color:#14b8a6;">${w.timeSavedPerWeek}</div></div></div></div></div>`).join('')}
+    </div>
+    <div style="background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(20,184,166,.08));border:1px solid rgba(245,158,11,.3);border-radius:20px;padding:36px;text-align:center;">
+      <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:10px;">Ready to Implement These Wins?</h3>
+      <p style="color:#7a849c;margin-bottom:24px;font-size:.92rem;">${r.nextStep||'Let JB.AI handle the full implementation — you focus on running your business.'}</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="/jb.ai/#contact" style="background:#f59e0b;color:#000;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;padding:14px 30px;border-radius:10px;text-decoration:none;font-size:.92rem;letter-spacing:.04em;">Book a Free Strategy Call →</a>
+        <button onclick="window.print()" style="background:transparent;color:#e8eaf2;font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;padding:13px 26px;border-radius:10px;border:1px solid rgba(255,255,255,.07);cursor:pointer;font-size:.92rem;">📄 Save Report</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+async function runAudit() {
+  screen = 'analyzing';
+  render();
+  const msgs = ['Reading your responses...','Analyzing workflow patterns...','Calculating time & cost savings...','Identifying quick wins...','Scoring your AI readiness...','Building your custom report...'];
+  let mi = 0;
+  const iv = setInterval(()=>{ mi=Math.min(mi+1,msgs.length-1); const el=document.getElementById('analyzing-msg'); if(el)el.textContent=msgs[mi]; },2000);
+
+  const prompt = `You are an AI business consultant. Analyze this small business questionnaire and return a JSON report.
+BUSINESS ANSWERS:
+${Object.entries(answers).map(([k,v])=>`${k}: ${Array.isArray(v)?v.join(', '):v}`).join('\n')}
+Return ONLY valid JSON:
+{"businessName":"...","industry":"...","overallScore":0-100,"readinessLevel":"Critical|Developing|Good|Advanced","executiveSummary":"2-3 sentence personalized summary","categories":{"customerService":{"score":0-100,"status":"...","insight":"1 sentence"},"marketing":{"score":0-100,"status":"...","insight":"1 sentence"},"operations":{"score":0-100,"status":"...","insight":"1 sentence"},"finance":{"score":0-100,"status":"...","insight":"1 sentence"},"scheduling":{"score":0-100,"status":"...","insight":"1 sentence"},"onlinePresence":{"score":0-100,"status":"...","insight":"1 sentence"}},"quickWins":[{"rank":1,"title":"...","description":"2 sentences","timeSavedPerWeek":"X hrs/week","annualSavings":"$X,XXX","effort":"Low|Medium|High","category":"..."}],"totalAnnualSavings":"$XX,XXX","totalWeeklyHoursSaved":"XX hrs/week","nextStep":"1 personalized sentence"}
+Be specific to their industry and actual answers.`;
+
+  try {
+    const res = await fetch(API_URL, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})
+    });
+    clearInterval(iv);
+    const data = await res.json();
+    const text = data.content?.find(c=>c.type==='text')?.text||'';
+    reportData = JSON.parse(text.replace(/```json|```/g,'').trim());
+    screen = 'report';
+  } catch(e) {
+    clearInterval(iv);
+    screen = 'questions';
+    alert('Something went wrong generating your report. Please try again.');
+  }
+  render();
+}
+
+// Initial render
+render();
+</script>
+</body>
+</html>

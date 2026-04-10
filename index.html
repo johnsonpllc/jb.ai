@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="JB.AI — Smarter Systems, Better Outcomes. AI-powered growth for local businesses. Free AI audit, website creation, and automation implementation."/>
+<title>JB.AI – Smarter Systems, Better Outcomes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;0,700;0,800;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#07090f;--bg2:#0e1120;--bg3:#141828;
+  --amber:#f59e0b;--amber-light:#fbbf24;--teal:#14b8a6;
+  --text:#e8eaf2;--muted:#7a849c;
+  --border:rgba(255,255,255,0.07);--card:rgba(20,24,40,0.85);
+  --radius:16px;
+  --fh:'Barlow Semi Condensed',sans-serif;
+  --fb:'DM Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.6;overflow-x:hidden;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(7,9,15,0.9);border-bottom:1px solid var(--border);}
+.logo{font-family:var(--fh);font-size:1.65rem;font-weight:800;color:var(--text);letter-spacing:.03em;line-height:1;}
+.logo em{color:var(--amber);font-style:normal;}
+.logo-sub{font-size:.58rem;font-weight:600;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;display:block;margin-top:2px;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.87rem;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{background:var(--amber);color:#000;font-family:var(--fh);font-weight:700;font-size:.9rem;padding:9px 20px;border-radius:8px;text-decoration:none;letter-spacing:.06em;transition:all .2s;}
+.nav-cta:hover{background:var(--amber-light);}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 5% 80px;position:relative;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.22;animation:drift 12s ease-in-out infinite alternate;}
+.orb1{width:600px;height:600px;background:radial-gradient(circle,#f59e0b,transparent);top:-150px;left:-100px;}
+.orb2{width:500px;height:500px;background:radial-gradient(circle,#14b8a6,transparent);bottom:-100px;right:-50px;animation-delay:-5s;}
+.orb3{width:350px;height:350px;background:radial-gradient(circle,#6366f1,transparent);top:40%;left:40%;animation-delay:-8s;}
+@keyframes drift{from{transform:translate(0,0) scale(1);}to{transform:translate(30px,20px) scale(1.1);}}
+.grid-line{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.35;}
+.hero-inner{position:relative;z-index:2;max-width:800px;}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.28);color:var(--amber);font-size:.75rem;font-weight:600;letter-spacing:.1em;padding:6px 15px;border-radius:100px;margin-bottom:26px;text-transform:uppercase;}
+.bdot{width:6px;height:6px;background:var(--amber);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:var(--fh);font-size:clamp(2.5rem,6vw,4.6rem);font-weight:800;line-height:1.06;letter-spacing:.01em;margin-bottom:14px;}
+.amber{color:var(--amber);}
+.hero-slogan{font-family:var(--fh);font-size:clamp(.9rem,1.8vw,1.15rem);font-weight:700;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px;}
+.hero-sub{font-size:1.02rem;color:var(--muted);max-width:540px;margin:0 auto 40px;line-height:1.78;}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-p{background:var(--amber);color:#000;font-family:var(--fh);font-weight:700;font-size:.98rem;padding:14px 32px;border-radius:10px;text-decoration:none;letter-spacing:.05em;transition:all .2s;}
+.btn-p:hover{background:var(--amber-light);transform:translateY(-2px);box-shadow:0 12px 40px rgba(245,158,11,.35);}
+.btn-g{background:transparent;color:var(--text);font-family:var(--fh);font-weight:600;font-size:.98rem;padding:13px 28px;border-radius:10px;text-decoration:none;border:1px solid var(--border);letter-spacing:.05em;transition:all .2s;}
+.btn-g:hover{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.05);}
+.hero-note{margin-top:16px;font-size:.78rem;color:var(--muted);}
+/* STATS */
+.stats{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:34px 5%;}
+.stats-g{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.stat{text-align:center;}
+.stat-n{font-family:var(--fh);font-size:2.3rem;font-weight:800;color:var(--amber);}
+.stat-l{font-size:.82rem;color:var(--muted);margin-top:3px;}
+/* COMMON */
+section{padding:92px 5%;}
+.si{max-width:1100px;margin:0 auto;}
+.ey{font-family:var(--fh);font-size:.73rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.st{font-family:var(--fh);font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:800;line-height:1.08;margin-bottom:12px;letter-spacing:.01em;}
+.ss{font-size:.98rem;color:var(--muted);max-width:520px;line-height:1.75;}
+/* SERVICES */
+.srv-h{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:18px;}
+.srv-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 26px;position:relative;overflow:hidden;transition:all .3s;}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--amber),transparent);opacity:0;transition:opacity .3s;}
+.sc:hover{border-color:rgba(245,158,11,.2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.sc:hover::before{opacity:1;}
+.sc-icon{font-size:2.1rem;margin-bottom:16px;display:block;}
+.sc-tag{font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:7px;}
+.sc h3{font-family:var(--fh);font-size:1.28rem;font-weight:700;margin-bottom:9px;letter-spacing:.02em;}
+.sc p{font-size:.87rem;color:var(--muted);line-height:1.7;}
+.sc-price{margin-top:16px;padding-top:16px;border-top:1px solid var(--border);font-size:.82rem;color:var(--amber);font-weight:600;}
+.fb{background:rgba(20,184,166,.14);color:var(--teal);border:1px solid rgba(20,184,166,.28);font-size:.67rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:100px;display:inline-block;margin-left:6px;}
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));position:relative;margin-top:52px;}
+.steps::after{content:'';position:absolute;top:30px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),transparent);z-index:0;}
+.step{text-align:center;padding:14px;position:relative;z-index:1;}
+.sn{width:60px;height:60px;border-radius:50%;background:var(--bg3);border:2px solid var(--amber);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:1.35rem;font-weight:800;color:var(--amber);margin:0 auto 16px;}
+.step h4{font-family:var(--fh);font-size:1.08rem;font-weight:700;margin-bottom:7px;letter-spacing:.02em;}
+.step p{font-size:.83rem;color:var(--muted);line-height:1.6;}
+/* USE CASES */
+.uc-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:52px;}
+.uc{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:all .3s;}
+.uc:hover{border-color:rgba(20,184,166,.3);transform:translateY(-3px);}
+.uc-tag{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.uc h3{font-family:var(--fh);font-size:1.1rem;font-weight:700;margin-bottom:12px;letter-spacing:.02em;}
+.wl{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.wl li{font-size:.84rem;color:var(--muted);padding-left:17px;position:relative;line-height:1.5;}
+.wl li::before{content:'→';position:absolute;left:0;color:var(--teal);}
+.wr{display:flex;align-items:baseline;gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);}
+.wn{font-family:var(--fh);font-size:1.55rem;font-weight:800;color:var(--amber);}
+.wd{font-size:.79rem;color:var(--muted);}
+/* PRICING */
+.pr-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:52px;}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 24px;position:relative;display:flex;flex-direction:column;}
+.pc.feat{border-color:var(--amber);background:linear-gradient(160deg,rgba(245,158,11,.08),var(--card));}
+.fl{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--amber);color:#000;font-size:.67rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:100px;white-space:nowrap;}
+.pt{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:9px;}
+.pc h3{font-family:var(--fh);font-size:1.25rem;font-weight:700;margin-bottom:7px;letter-spacing:.02em;}
+.pc .de{font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.65;}
+.pa{font-family:var(--fh);font-size:2.7rem;font-weight:800;margin-bottom:3px;}
+.pa span{font-size:.95rem;color:var(--muted);}
+.pn{font-size:.75rem;color:var(--muted);margin-bottom:24px;}
+.pf{list-style:none;display:flex;flex-direction:column;gap:10px;flex:1;}
+.pf li{font-size:.85rem;color:var(--muted);padding-left:18px;position:relative;}
+.pf li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700;}
+.pcta{display:block;text-align:center;margin-top:24px;padding:12px;border-radius:10px;font-family:var(--fh);font-weight:700;font-size:.88rem;text-decoration:none;letter-spacing:.04em;transition:all .2s;}
+.cs{background:var(--amber);color:#000;}.cs:hover{background:var(--amber-light);}
+.co{border:1px solid var(--border);color:var(--text);}.co:hover{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.05);}
+/* NEWSLETTER — Mailchimp restyled */
+#newsletter{background:linear-gradient(135deg,var(--bg3),var(--bg2));border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.nl-wrap{max-width:660px;margin:0 auto;text-align:center;}
+.nl-feats{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin:20px 0 32px;}
+.nl-f{font-size:.82rem;color:var(--muted);display:flex;align-items:center;gap:5px;}
+/* Mailchimp form — stripped and restyled */
+#mc_embed_signup_scroll{display:flex;flex-direction:column;gap:10px;align-items:center;}
+#mc_embed_signup_scroll h2{display:none;}
+.indicates-required{display:none;}
+#mc_embed_signup .mc-field-group{width:100%;max-width:420px;}
+#mc_embed_signup .mc-field-group label{display:none;}
+#mc_embed_signup .mc-field-group input{width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--text);font-family:var(--fb);font-size:.92rem;padding:13px 16px;border-radius:10px;outline:none;transition:border-color .2s;}
+#mc_embed_signup .mc-field-group input::placeholder{color:var(--muted);}
+#mc_embed_signup .mc-field-group input:focus{border-color:rgba(245,158,11,.4);}
+#mc_embed_signup .mc-field-group input[name="COMPANY"]{display:none;}
+#mc_embed_signup .button{background:var(--amber);color:#000;font-family:var(--fh);font-weight:700;font-size:.93rem;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;letter-spacing:.05em;transition:all .2s;width:auto;}
+#mc_embed_signup .button:hover{background:var(--amber-light);}
+#mce-EMAIL::placeholder{content:'your@email.com';}
+#mce-FNAME::placeholder{content:'First name';}
+#mce-responses{width:100%;max-width:420px;}
+#mce-error-response{color:#ff4d6d;font-size:.82rem;padding:8px 0;}
+#mce-success-response{color:var(--teal);font-size:.85rem;padding:8px 0;font-weight:600;}
+.nl-fine{font-size:.74rem;color:var(--muted);margin-top:8px;}
+/* LEAD MAGNET */
+#lead-magnet{background:linear-gradient(135deg,#0a1420,#0e1a10);border-top:1px solid var(--border);}
+.lm-g{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1000px;margin:0 auto;}
+.lm-offer{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;position:relative;overflow:hidden;margin-top:28px;}
+.lm-offer::before{content:'FREE';position:absolute;top:16px;right:-22px;background:var(--amber);color:#000;font-family:var(--fh);font-size:.7rem;font-weight:800;letter-spacing:.1em;padding:4px 36px;transform:rotate(45deg);}
+.lm-offer h3{font-family:var(--fh);font-size:1.35rem;font-weight:800;letter-spacing:.02em;margin-bottom:8px;}
+.lm-offer p{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:18px;}
+.lm-cl{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.lm-cl li{font-size:.84rem;color:var(--muted);padding-left:18px;position:relative;}
+.lm-cl li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-weight:700;}
+.lm-form-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:34px;}
+.lm-form-wrap h3{font-family:var(--fh);font-size:1.25rem;font-weight:800;letter-spacing:.02em;margin-bottom:6px;}
+.lm-form-wrap>p{font-size:.83rem;color:var(--muted);margin-bottom:22px;}
+.lm-inputs{display:flex;flex-direction:column;gap:11px;}
+.lm-in{background:var(--bg2);border:1px solid var(--border);color:var(--text);font-family:var(--fb);font-size:.9rem;padding:12px 15px;border-radius:10px;outline:none;transition:border-color .2s;}
+.lm-in::placeholder{color:var(--muted);}
+.lm-in:focus{border-color:rgba(245,158,11,.4);}
+.lm-sub{background:var(--amber);color:#000;font-family:var(--fh);font-weight:700;font-size:.97rem;padding:13px;border-radius:10px;border:none;cursor:pointer;letter-spacing:.05em;width:100%;transition:all .2s;margin-top:4px;}
+.lm-sub:hover{background:var(--amber-light);}
+/* FAQ */
+.faq-lay{display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start;}
+.faq-l{margin-top:14px;display:flex;flex-direction:column;gap:11px;}
+.faq-it{background:var(--bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.faq-q{padding:17px 20px;font-family:var(--fh);font-size:.97rem;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:background .2s;letter-spacing:.02em;}
+.faq-q:hover{background:var(--bg3);}
+.arr{transition:transform .3s;font-size:1.1rem;color:var(--amber);}
+.faq-it.open .arr{transform:rotate(45deg);}
+.faq-a{font-size:.86rem;color:var(--muted);line-height:1.7;padding:0 20px;max-height:0;overflow:hidden;transition:all .35s ease;}
+.faq-it.open .faq-a{max-height:300px;padding:0 20px 18px;}
+/* CONTACT */
+#contact{background:var(--bg);}
+.ct-lay{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start;}
+.ct-info{display:flex;flex-direction:column;gap:16px;margin-top:22px;}
+.ct-it{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;gap:12px;align-items:flex-start;}
+.ct-ic{font-size:1.3rem;flex-shrink:0;}
+.ct-it h4{font-family:var(--fh);font-size:.93rem;font-weight:700;letter-spacing:.03em;margin-bottom:3px;}
+.ct-it p,.ct-it a{font-size:.84rem;color:var(--muted);text-decoration:none;}
+.ct-it a:hover{color:var(--amber);}
+.ct-fw{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:34px;}
+.ct-fw h3{font-family:var(--fh);font-size:1.25rem;font-weight:800;letter-spacing:.02em;margin-bottom:5px;}
+.ct-fw>p{font-size:.83rem;color:var(--muted);margin-bottom:22px;}
+.f2c{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.fg label{font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.fg input,.fg select,.fg textarea{background:var(--bg2);border:1px solid var(--border);color:var(--text);font-family:var(--fb);font-size:.88rem;padding:11px 14px;border-radius:10px;outline:none;transition:border-color .2s;width:100%;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(245,158,11,.4);}
+.fg select{cursor:pointer;}
+.fg textarea{resize:vertical;min-height:105px;}
+.f-sub{background:var(--amber);color:#000;font-family:var(--fh);font-weight:700;font-size:.97rem;padding:13px 26px;border-radius:10px;border:none;cursor:pointer;letter-spacing:.05em;width:100%;transition:all .2s;}
+.f-sub:hover{background:var(--amber-light);}
+.f-note{text-align:center;font-size:.73rem;color:var(--muted);margin-top:9px;}
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:52px 5% 32px;}
+.ft-in{max-width:1100px;margin:0 auto;}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+.ft-br p{font-size:.84rem;color:var(--muted);margin-top:9px;max-width:260px;line-height:1.7;}
+.ft-sl{font-family:var(--fh);font-size:.78rem;font-weight:700;color:var(--amber);letter-spacing:.08em;text-transform:uppercase;margin-top:5px;}
+.ft-col h5{font-family:var(--fh);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text);margin-bottom:13px;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ft-col a{color:var(--muted);text-decoration:none;font-size:.84rem;transition:color .2s;}
+.ft-col a:hover{color:var(--text);}
+.ft-bot{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.ft-bot p{font-size:.77rem;color:var(--muted);}
+/* TOAST */
+#toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--teal);color:#000;font-family:var(--fh);font-weight:700;font-size:.88rem;padding:13px 26px;border-radius:100px;z-index:300;transition:transform .4s cubic-bezier(.34,1.56,.64,1);white-space:nowrap;pointer-events:none;}
+#toast.show{transform:translateX(-50%) translateY(0);}
+/* CHAT WIDGET */
+#chat-bubble{position:fixed;bottom:28px;right:28px;z-index:200;cursor:pointer;}
+#chat-btn{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--amber),#14b8a6);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 8px 32px rgba(245,158,11,.3);transition:transform .2s;}
+#chat-btn:hover{transform:scale(1.08);}
+/* RESPONSIVE */
+@media(max-width:880px){
+  .nav-links{display:none;}
+  .stats-g{grid-template-columns:repeat(2,1fr);}
+  .faq-lay,.ct-lay,.lm-g{grid-template-columns:1fr;}
+  .ft-top{grid-template-columns:1fr 1fr;}
+  .f2c{grid-template-columns:1fr;}
+  .steps::after{display:none;}
+}
+</style>
+</head>
+<body>
+<div id="toast">✓ Done!</div>
+
+<!-- CHAT BUBBLE → links to /jb.ai/chat/ -->
+<div id="chat-bubble" onclick="window.location='/jb.ai/chat/'">
+  <div id="chat-btn">🤖</div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div>
+    <div class="logo">JB<em>.</em>AI</div>
+    <span class="logo-sub">Smarter Systems, Better Outcomes</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how-it-works">Process</a></li>
+    <li><a href="#use-cases">Use Cases</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#lead-magnet" class="nav-cta">Free AI Audit →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="grid-line"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div class="hero-inner">
+    <div class="badge"><span class="bdot"></span>Now Serving Local Businesses</div>
+    <h1>Your Business Deserves<br/><span class="amber">Smarter Systems.</span></h1>
+    <p class="hero-slogan">Smarter Systems. Better Outcomes.</p>
+    <p class="hero-sub">We audit your operations, find automation opportunities, and implement AI tools that save time, cut costs, and grow revenue — no tech background required.</p>
+    <div class="hero-btns">
+      <a href="#lead-magnet" class="btn-p">Get Your Free AI Audit</a>
+      <a href="#services" class="btn-g">See What We Offer</a>
+    </div>
+    <p class="hero-note">✓ Free audit &nbsp;·&nbsp; No tech knowledge needed &nbsp;·&nbsp; Results in 48 hrs</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-g">
+    <div class="stat"><div class="stat-n">150%</div><div class="stat-l">Average productivity lift for AI adopters</div></div>
+    <div class="stat"><div class="stat-n">$6,500+</div><div class="stat-l">Annual savings from 5 hrs/week automated</div></div>
+    <div class="stat"><div class="stat-n">62%</div><div class="stat-l">Reduction in admin time post-implementation</div></div>
+    <div class="stat"><div class="stat-n">3.5×</div><div class="stat-l">ROI per $1 in AI customer service</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" style="background:var(--bg);">
+  <div class="si">
+    <div class="srv-h">
+      <div><p class="ey">What We Offer</p><h2 class="st">Four Services.<br/>One Mission.</h2></div>
+      <p class="ss">Every service is built to make your business faster, smarter, and more competitive — without the enterprise price tag.</p>
+    </div>
+    <div class="srv-g">
+      <div class="sc"><span class="sc-icon">🔍</span><p class="sc-tag">Start Here — It's Free</p><h3>Website Audit</h3><p>We analyze your site for speed, mobile, SEO, and conversion gaps — delivering a prioritized report within 48 hours.</p><div class="sc-price">Free<span class="fb">No Cost</span></div></div>
+      <div class="sc"><span class="sc-icon">🌐</span><p class="sc-tag">Grow Your Presence</p><h3>Website Creation &amp; Maintenance</h3><p>Fast, mobile-first sites built to convert visitors into customers, with ongoing monthly updates.</p><div class="sc-price">From $500 + $149/mo</div></div>
+      <div class="sc"><span class="sc-icon">🤖</span><p class="sc-tag">Start Here — It's Free</p><h3>AI Audit</h3><p>A scored deep-dive across 6 business areas — we identify exactly where AI saves you time and money.</p><div class="sc-price">Free<span class="fb">No Cost</span></div></div>
+      <div class="sc"><span class="sc-icon">⚡</span><p class="sc-tag">Biggest Impact</p><h3>AI Implementation</h3><p>We handle the full setup — chatbots, automations, CRM, scheduling — then train your team.</p><div class="sc-price">Custom after audit</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" style="background:var(--bg2);">
+  <div class="si">
+    <div style="text-align:center;max-width:560px;margin:0 auto;">
+      <p class="ey">The Process</p>
+      <h2 class="st">How the AI Audit Works</h2>
+      <p class="ss" style="margin:0 auto;">Simple, fast, and completely tailored. Most audits are complete within 48 hours.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="sn">1</div><h4>Answer 25 Questions</h4><p>A walkthrough of your operations, tools, and pain points. Takes about 10 minutes.</p></div>
+      <div class="step"><div class="sn">2</div><h4>We Analyze &amp; Score</h4><p>Your answers scored across 6 business areas — identifying gaps and quick wins.</p></div>
+      <div class="step"><div class="sn">3</div><h4>Get Your Report</h4><p>Top 3 quick wins, estimated savings, and tools — all in plain English.</p></div>
+      <div class="step"><div class="sn">4</div><h4>We Implement Together</h4><p>If you're ready, we handle the setup and train your team.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section id="use-cases" style="background:var(--bg);">
+  <div class="si">
+    <p class="ey">Industry Use Cases</p>
+    <h2 class="st">AI Works for Every Local Business</h2>
+    <div class="uc-g">
+      <div class="uc"><p class="uc-tag">🍽️ Restaurants &amp; Food</p><h3>More bookings. Less no-shows.</h3><ul class="wl"><li>24/7 AI chatbot for reservations &amp; FAQs</li><li>Automated review responses</li><li>Demand forecasting to reduce waste</li><li>Scheduled social posts for specials</li></ul><div class="wr"><span class="wn">35%</span><span class="wd">more bookings from after-hours chatbot</span></div></div>
+      <div class="uc"><p class="uc-tag">🛒 Retail</p><h3>Smarter inventory. Better marketing.</h3><ul class="wl"><li>Auto-reorder at stock threshold</li><li>AI-generated product descriptions</li><li>Segmented email by purchase history</li><li>Automated monthly sales reports</li></ul><div class="wr"><span class="wn">10 hrs</span><span class="wd">saved monthly on bookkeeping alone</span></div></div>
+      <div class="uc"><p class="uc-tag">💆 Service Businesses</p><h3>Fill your calendar. Cut admin.</h3><ul class="wl"><li>Online booking with auto-reminders</li><li>Automated follow-up &amp; rebooking</li><li>Intake forms that auto-populate CRM</li><li>AI-generated quotes &amp; proposals</li></ul><div class="wr"><span class="wn">50%</span><span class="wd">faster scheduling with AI systems</span></div></div>
+      <div class="uc"><p class="uc-tag">⚖️ Professional Services</p><h3>More client work. Less paperwork.</h3><ul class="wl"><li>AI drafts routine documents</li><li>Automated invoicing &amp; reminders</li><li>Client Q&amp;A chatbot</li><li>Research summarization</li></ul><div class="wr"><span class="wn">62%</span><span class="wd">reduction in document handling time</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background:var(--bg2);">
+  <div class="si">
+    <div style="text-align:center;max-width:540px;margin:0 auto 52px;">
+      <p class="ey">Pricing</p>
+      <h2 class="st">Simple, Transparent Pricing</h2>
+      <p class="ss" style="margin:0 auto;">Start free. Pay when you're ready. No surprise fees.</p>
+    </div>
+    <div class="pr-g">
+      <div class="pc"><p class="pt">Free Intro</p><h3>Audit Only</h3><p class="de">Full scored report, zero commitment required.</p><div class="pa">$0</div><p class="pn">No credit card needed</p><ul class="pf"><li>Full AI Audit (25 questions)</li><li>AI Readiness Score 0–100</li><li>Top 3 quick win recommendations</li><li>Estimated annual savings</li><li>Recommended tools</li><li>Website Audit included</li></ul><a href="#lead-magnet" class="pcta co">Start Free Audit</a></div>
+      <div class="pc feat"><span class="fl">Most Popular</span><p class="pt">Starter</p><h3>Web + AI Essentials</h3><p class="de">New website, AI chatbot, and one automation — fastest ROI path.</p><div class="pa">$750 <span>setup</span></div><p class="pn">+ $149/mo maintenance</p><ul class="pf"><li>Everything in Free Audit</li><li>New website (up to 5 pages)</li><li>Mobile-first, fast design</li><li>AI chatbot install &amp; training</li><li>One workflow automation</li><li>30-day onboarding support</li></ul><a href="#contact" class="pcta cs">Get Started</a></div>
+      <div class="pc"><p class="pt">Growth</p><h3>Full AI Transformation</h3><p class="de">Complete website + AI across your top 3 workflow areas.</p><div class="pa">Custom</div><p class="pn">Scoped after your audit</p><ul class="pf"><li>Everything in Starter</li><li>Full website design &amp; build</li><li>3 automation workflows</li><li>CRM setup &amp; integration</li><li>Email marketing automation</li><li>Team training &amp; docs</li><li>Monthly optimization</li></ul><a href="#contact" class="pcta co">Let's Talk Scope</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER — Mailchimp embed restyled -->
+<section id="newsletter">
+  <div class="si">
+    <div class="nl-wrap">
+      <p class="ey">Free Newsletter</p>
+      <h2 class="st">The JB.AI Weekly</h2>
+      <p class="ss" style="margin:0 auto 16px;">Practical AI tips for local business owners. No fluff — just real tools and tactics you can use this week.</p>
+      <div class="nl-feats">
+        <span class="nl-f">📬 Every Tuesday</span>
+        <span class="nl-f">⏱️ 3-min read</span>
+        <span class="nl-f">🔧 One actionable tip/issue</span>
+        <span class="nl-f">🚫 Zero spam</span>
+      </div>
+      <!-- Mailchimp Embed — form action preserved, styling replaced -->
+      <div id="mc_embed_signup">
+        <form action="https://gmail.us22.list-manage.com/subscribe/post?u=8c0c7717ffde5818022fd4f72&amp;id=4ef7d5288d&amp;f_id=00bbc2e1f0"
+              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+              class="validate" target="_blank">
+          <div id="mc_embed_signup_scroll">
+            <h2>Subscribe</h2>
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group">
+              <label for="mce-FNAME">First Name</label>
+              <input type="text" name="FNAME" class="required text" id="mce-FNAME" required placeholder="First name"/>
+            </div>
+            <div class="mc-field-group">
+              <label for="mce-EMAIL">Email Address</label>
+              <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required placeholder="your@email.com"/>
+            </div>
+            <!-- Tags preserved -->
+            <div hidden><input type="hidden" name="tags" value="469,470"/></div>
+            <!-- Responses -->
+            <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display:none;"></div>
+              <div class="response" id="mce-success-response" style="display:none;"></div>
+            </div>
+            <!-- Honeypot anti-spam — DO NOT REMOVE -->
+            <div aria-hidden="true" style="position:absolute;left:-5000px;">
+              <input type="text" name="b_8c0c7717ffde5818022fd4f72_4ef7d5288d" tabindex="-1" value=""/>
+            </div>
+            <div class="clear">
+              <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe Free →"/>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p class="nl-fine">Join local business owners getting smarter every week. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD MAGNET — Formspree xojpodpl -->
+<section id="lead-magnet">
+  <div class="si">
+    <div class="lm-g">
+      <div>
+        <p class="ey">Free for a Limited Time</p>
+        <h2 class="st">Get Your Free AI Readiness Report</h2>
+        <p class="ss" style="margin-bottom:24px;">In 10 minutes, know exactly where AI can save you time and money — and what to do first.</p>
+        <div class="lm-offer">
+          <h3>What You'll Get</h3>
+          <p>A fully personalized report based on how your business actually operates today.</p>
+          <ul class="lm-cl">
+            <li>AI Readiness Score across 6 business areas</li>
+            <li>Your top 3 highest-ROI quick wins</li>
+            <li>Estimated annual time &amp; cost savings</li>
+            <li>Tool recommendations for your industry</li>
+            <li>A 3-phase implementation roadmap</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lm-form-wrap">
+        <h3>Start Your Free Audit</h3>
+        <p>~10 minutes. No credit card. No sales pressure.</p>
+        <form id="lm-form" onsubmit="submitForm(event,'lm-form','lm-form-wrap','✓ Audit request received! Check your inbox shortly.')">
+          <input type="hidden" name="_subject" value="JB.AI — New Audit Request 🔥"/>
+          <div class="lm-inputs">
+            <input type="text" class="lm-in" name="name" placeholder="Your name" required/>
+            <input type="email" class="lm-in" name="email" placeholder="Business email" required/>
+            <input type="text" class="lm-in" name="business" placeholder="Business name"/>
+            <input type="text" class="lm-in" name="type" placeholder="Type of business (e.g. restaurant, salon)"/>
+            <button type="submit" class="lm-sub">Send Me the Audit →</button>
+          </div>
+        </form>
+        <p style="text-align:center;font-size:.73rem;color:var(--muted);margin-top:10px;">✓ We'll email your audit link within minutes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--bg2);">
+  <div class="si">
+    <div class="faq-lay">
+      <div>
+        <p class="ey">Questions</p>
+        <h2 class="st">Frequently Asked</h2>
+        <p class="ss">Still unsure? Reach out and we'll answer anything.</p>
+        <a href="#contact" class="btn-p" style="display:inline-block;margin-top:22px;font-size:.88rem;padding:11px 22px;">Contact Us →</a>
+      </div>
+      <div class="faq-l">
+        <div class="faq-it"><div class="faq-q" onclick="tFaq(this)">Do I need technical knowledge to work with you? <span class="arr">+</span></div><div class="faq-a">Not at all. We handle everything technical. You describe how your business works, and we figure out the best AI solutions — explained in plain English. We also train your team on any tools we implement.</div></div>
+        <div class="faq-it"><div class="faq-q" onclick="tFaq(this)">How long does the AI audit take? <span class="arr">+</span></div><div class="faq-a">The questionnaire takes 10–15 minutes. After you submit, we deliver your full AI Readiness Report within 48 hours — usually much sooner.</div></div>
+        <div class="faq-it"><div class="faq-q" onclick="tFaq(this)">What kinds of businesses do you work with? <span class="arr">+</span></div><div class="faq-a">Local small-to-medium businesses: restaurants, retail, salons, spas, contractors, law offices, accounting, real estate, medical/dental practices, gyms, and more.</div></div>
+        <div class="faq-it"><div class="faq-q" onclick="tFaq(this)">What if I just want the audit and nothing else? <span class="arr">+</span></div><div class="faq-a">Totally fine. The audit is free and valuable on its own. Zero pressure to buy anything afterward.</div></div>
+        <div class="faq-it"><div class="faq-q" onclick="tFaq(this)">How much can AI really save my business? <span class="arr">+</span></div><div class="faq-a">Automating just 5 hours of work per week at $25/hr saves $6,500/year. Most businesses we audit have much more opportunity. Your report will include a specific savings estimate for your situation.</div></div>
+        <div class="faq-it"><div class="faq-q" onclick="tFaq(this)">Will AI replace my employees? <span class="arr">+</span></div><div class="faq-a">No. Our goal is to free your team from repetitive tasks so they can focus on higher-value work. AI handles the routine; your people handle the relationships that differentiate your business.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT — Formspree xojpodpl -->
+<section id="contact">
+  <div class="si">
+    <div class="ct-lay">
+      <div>
+        <p class="ey">Get In Touch</p>
+        <h2 class="st">Let's Talk About Your Business</h2>
+        <p class="ss" style="margin-bottom:0;">Whether you have questions, want to discuss a project, or just want to see if AI is right for you.</p>
+        <div class="ct-info">
+          <div class="ct-it"><span class="ct-ic">📧</span><div><h4>Email</h4><a href="https://formspree.io/f/xojpodpl">Send us a message →</a></div></div>
+          <div class="ct-it"><span class="ct-ic">⏰</span><div><h4>Response Time</h4><p>We reply within 1 business day — usually same day.</p></div></div>
+          <div class="ct-it"><span class="ct-ic">📍</span><div><h4>Service Area</h4><p>Serving local businesses nationwide. Remote-first, always available.</p></div></div>
+          <div class="ct-it"><span class="ct-ic">🤖</span><div><h4>Talk to Sage</h4><a href="/jb.ai/chat/">Chat with our AI assistant →</a></div></div>
+        </div>
+      </div>
+      <div class="ct-fw">
+        <h3>Send Us a Message</h3>
+        <p>We'll get back to you within one business day.</p>
+        <form id="ct-form" onsubmit="submitForm(event,'ct-form','ct-fw','✓ Message sent! We\'ll be in touch soon.')">
+          <input type="hidden" name="_subject" value="JB.AI — New Contact Message"/>
+          <div class="f2c">
+            <div class="fg"><label>First Name *</label><input type="text" name="firstName" required placeholder="John"/></div>
+            <div class="fg"><label>Last Name *</label><input type="text" name="lastName" required placeholder="Smith"/></div>
+          </div>
+          <div class="fg"><label>Email *</label><input type="email" name="email" required placeholder="john@yourbusiness.com"/></div>
+          <div class="fg"><label>Business Name</label><input type="text" name="business" placeholder="Smith's Hardware"/></div>
+          <div class="fg"><label>I'm Interested In</label>
+            <select name="service">
+              <option value="">Select a service...</option>
+              <option>Free AI Audit</option>
+              <option>Free Website Audit</option>
+              <option>Website Creation &amp; Maintenance</option>
+              <option>AI Implementation</option>
+              <option>Starter Bundle ($750)</option>
+              <option>Just have a question</option>
+            </select>
+          </div>
+          <div class="fg"><label>Message *</label><textarea name="message" required placeholder="Tell us about your business and what you're looking for..."></textarea></div>
+          <button type="submit" class="f-sub">Send Message →</button>
+          <p class="f-note">✓ Your info is never shared &nbsp;·&nbsp; ✓ No spam ever</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-in">
+    <div class="ft-top">
+      <div class="ft-br">
+        <div class="logo" style="font-size:1.45rem;">JB<em>.</em>AI</div>
+        <div class="ft-sl">Smarter Systems, Better Outcomes</div>
+        <p>AI-powered growth for local businesses. We bring intelligent automation to the businesses that make our communities run.</p>
+      </div>
+      <div class="ft-col"><h5>Services</h5><ul><li><a href="#services">Website Audit</a></li><li><a href="#services">Website Creation</a></li><li><a href="#services">AI Audit</a></li><li><a href="#services">AI Implementation</a></li></ul></div>
+      <div class="ft-col"><h5>Industries</h5><ul><li><a href="#use-cases">Restaurants</a></li><li><a href="#use-cases">Retail</a></li><li><a href="#use-cases">Service Businesses</a></li><li><a href="#use-cases">Professional Services</a></li></ul></div>
+      <div class="ft-col"><h5>Company</h5><ul><li><a href="#newsletter">Newsletter</a></li><li><a href="#lead-magnet">Free Audit</a></li><li><a href="#contact">Contact</a></li><li><a href="/jb.ai/chat/">Chat with Sage</a></li></ul></div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2025 JB.AI · A division of TMJP LLC. All rights reserved.</p>
+      <p>Smarter Systems, Better Outcomes.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mailchimp: no jQuery needed — form submits directly to Mailchimp servers -->
+<script>
+// Add placeholder attributes after DOM loads (Mailchimp strips them server-side)
+document.addEventListener('DOMContentLoaded', function() {
+  var em = document.getElementById('mce-EMAIL');
+  var fn = document.getElementById('mce-FNAME');
+  if(em) em.placeholder = 'your@email.com';
+  if(fn) fn.placeholder = 'First name';
+
+  // Show a brief inline thank-you note when the form is submitted
+  var mcForm = document.getElementById('mc-embedded-subscribe-form');
+  if(mcForm) {
+    mcForm.addEventListener('submit', function() {
+      setTimeout(function() {
+        var success = document.getElementById('mce-success-response');
+        if(success) {
+          success.style.display = 'block';
+          success.textContent = '🎉 Thanks! Check your inbox to confirm your subscription.';
+        }
+      }, 500);
+    });
+  }
+});
+</script>
+
+<script>
+// ── FORMSPREE SUBMIT (Contact + Lead forms) ──
+const FS_ID = 'xojpodpl';
+async function submitForm(e, formId, wrapId, successMsg) {
+  e.preventDefault();
+  const form = document.getElementById(formId);
+  const wrap = document.getElementById(wrapId) || form.closest('.lm-form-wrap') || form.closest('.ct-fw');
+  const btn = form.querySelector('button[type="submit"], input[type="submit"]');
+  if(btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+  try {
+    const r = await fetch(`https://formspree.io/f/${FS_ID}`, {
+      method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
+    });
+    if(r.ok) {
+      form.innerHTML = `<div style="text-align:center;padding:28px;">
+        <div style="font-size:2.5rem;margin-bottom:12px;">🎉</div>
+        <p style="font-family:var(--fh);font-size:1.15rem;font-weight:700;margin-bottom:6px;">You're all set!</p>
+        <p style="font-size:.85rem;color:var(--muted);">We'll be in touch within one business day.</p>
+      </div>`;
+      toast(successMsg);
+    } else { throw new Error(); }
+  } catch {
+    if(btn) { btn.disabled = false; btn.textContent = 'Try Again'; }
+    toast('⚠️ Something went wrong — please try again.');
+  }
+}
+// ── TOAST ──
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+// ── FAQ ──
+function tFaq(el) {
+  const it = el.parentElement, was = it.classList.contains('open');
+  document.querySelectorAll('.faq-it').forEach(i => i.classList.remove('open'));
+  if(!was) it.classList.add('open');
+}
+// ── SCROLL ANIMATIONS ──
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    var animEls = document.querySelectorAll('.sc,.uc,.pc,.step,.ct-it');
+    var ob = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if(e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+      });
+    }, { threshold: 0.05 });
+    animEls.forEach(function(el) {
+      el.style.opacity='0'; el.style.transform='translateY(20px)';
+      el.style.transition='opacity .5s ease, transform .5s ease';
+      ob.observe(el);
+    });
+    // Fallback: force visible after 2s in case observer doesnt fire
+    setTimeout(function() {
+      animEls.forEach(function(el) { el.style.opacity='1'; el.style.transform='translateY(0)'; });
+    }, 2000);
+  } catch(err) {
+    document.querySelectorAll('.sc,.uc,.pc,.step,.ct-it').forEach(function(el) {
+      el.style.opacity='1'; el.style.transform='none';
+    });
+  }
+});
+// ── Mailchimp input placeholders ──
+document.addEventListener('DOMContentLoaded', () => {
+  const em = document.getElementById('mce-EMAIL');
+  const fn = document.getElementById('mce-FNAME');
+  if(em) em.setAttribute('placeholder','your@email.com');
+  if(fn) fn.setAttribute('placeholder','First name');
+});
+</script>
+</body>
+</html>
