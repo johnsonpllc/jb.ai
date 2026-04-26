@@ -1,18 +1,7 @@
 {
   "brand": "JB.AI",
-  "updated": "2026-04-26T05:18:56.304Z",
+  "updated": "2026-04-26T05:26:55.883Z",
   "issues": [
-    {
-      "id": 1777180733579,
-      "issueNumber": 2,
-      "date": "2026-04-26T05:18:53.579Z",
-      "subject": "The JB.AI Weekly #2: How to calculate the cost of a lead",
-      "slug": "issue-2",
-      "spotlight": "🌐 General — AI Benefits for Any Business",
-      "ctas": "AI Voice Bot",
-      "mcId": "794f6a7164",
-      "ghPublished": true
-    },
     {
       "id": 1776995925329,
       "issueNumber": 1,
