@@ -1,0 +1,29 @@
+{
+  "id": 1777180733579,
+  "issueNumber": 2,
+  "date": "2026-04-26T05:18:53.579Z",
+  "subject": "The JB.AI Weekly #2: How to calculate the cost of a lead",
+  "focus": "How AI Voice bots are transforming the business landscape",
+  "spotlight": "🌐 General — AI Benefits for Any Business",
+  "ctas": "AI Voice Bot",
+  "sections": {
+    "mainTip": "Calculating your true lead cost is crucial for measuring AI voice bot ROI and optimizing your sales funnel.\n\n• **Track total campaign spend**: Include AI voice bot platform fees, setup costs, phone numbers, and any additional software integrations. Don't forget staff time for initial configuration.\n\n• **Count qualified leads only**: Measure leads that meet your specific criteria (budget, timeline, decision-maker contact) rather than total conversations initiated.\n\n• **Factor in conversion rates**: AI voice bots typically achieve 15-25% higher lead qualification rates than traditional methods. [CallRail](https://www.callrail.com/blog/voice-ai-lead-generation) This improves your cost-per-qualified-lead significantly.\n\n• **Compare across channels**: Benchmark your AI voice bot cost-per-lead against email, PPC, and cold calling to identify your most efficient acquisition method.\n\n• **Monitor over time**: Lead costs typically decrease 30-40% after the first month as AI systems learn and optimize conversations.",
+    "newsRoundup": "# This Week in AI\n\n**Small Business AI Chatbot Adoption Surges to 64% by End 2026**\nSmall businesses are rapidly embracing chatbot technology, with 64% planning adoption by late 2026, driven by 30-40% cost reductions and 340% first-year ROI with payback periods as short as three months.\n• Why it matters: AI chatbots have evolved from enterprise luxury to small business necessity, with affordable $29-$99 monthly plans making advanced customer service automation accessible to local businesses.\n\n**Voice AI Goes Mainstream for Local Service Businesses**\nVoice bots are solving the chronic problem of missed calls for local service businesses, automatically handling appointment requests, follow-ups, and FAQs without human intervention.\n• Why it matters: Platforms like Synthflow are democratizing voice AI technology, enabling small businesses to capture every customer interaction without hiring additional staff.\n\n**Real-World Case Studies Show Dramatic Results for Small Businesses**\nEye-oo eyeglasses retailer generated an additional €177,000 in income with 25% sales increase after implementing Tidio's Lyro AI, achieving 86% reduction in response times.\n• Why it matters: Proven ROI data demonstrates AI chatbots deliver measurable business impact, not just operational efficiency improvements.",
+    "toolOfWeek": "🛠️ **Calendly** — Seamless appointment scheduling that integrates perfectly with AI chatbots.\n\n• Automates booking, rescheduling, and calendar syncing across multiple platforms\n• Hair salon's AI chatbot collects service preferences, then hands off to Calendly for instant appointment booking with preferred stylist availability\n• Set buffer times between appointments in Calendly settings to give your AI chatbot realistic availability windows when customers ask about same-day bookings",
+    "statOfWeek": "Let me search for more specific statistics about small businesses and local businesses using AI chatbots and voice bots.Based on my search results, I found a compelling statistic about SME AI adoption growth that's perfect for your newsletter:\n\n📊 **Small and medium-sized enterprises are growing their AI chatbot adoption at the fastest rate with a 25.1% CAGR** — [Nextiva](https://www.nextiva.com/blog/conversational-ai-statistics.html)\n\n• While large enterprises held 68.2% of the market in 2024, SMEs are catching up rapidly\n• 64% of small businesses plan to adopt chatbots by 2026, creating massive opportunity\n• Median small business saves $7,500 annually plus 30 hours weekly from AI automation",
+    "spotlight": "**Your competitors are answering calls while you're losing customers to voicemail.**\n\n• **Missed calls = missed money:** 27% of callers won't call back, costing small businesses an average of $62,000 annually in lost revenue\n\n• **AI Chatbots work weekends:** Capture and qualify leads 24/7 while you sleep, converting 35% more website visitors into prospects\n\n• **Voice Bots end phone tag:** Handle appointment scheduling, FAQs, and lead intake instantly—no more playing callback roulette\n\n• **ROI reality check:** Save 5 hours weekly on routine calls = $500+ monthly in recovered productivity costs\n\n**The question isn't whether you need AI—it's whether you can afford to keep missing opportunities.**"
+  },
+  "blogSlug": "issue-2",
+  "mcId": "794f6a7164",
+  "ghPublished": false,
+  "selCtas": [
+    {
+      "label": "AI Voice Bot",
+      "price": "$1,000 + $149/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact"
+    }
+  ],
+  "brandName": "JB.AI",
+  "newsletterName": "The JB.AI Weekly",
+  "backed_up": "2026-04-26T05:18:55.118Z"
+}
