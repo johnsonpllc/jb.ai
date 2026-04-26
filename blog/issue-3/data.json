@@ -1,0 +1,29 @@
+{
+  "id": 1777178304499,
+  "issueNumber": 3,
+  "date": "2026-04-26T04:38:24.499Z",
+  "subject": "The JB.AI Weekly #3: How to calculate the cost of missed calls for your busi...",
+  "focus": "How AI Voice Bots help local service businesses never miss a call",
+  "spotlight": "🌐 General — AI Benefits for Any Business",
+  "ctas": "AI Voice Bot",
+  "sections": {
+    "mainTip": "Every missed call is money walking out the door – here's how to calculate exactly what it's costing you.\n\n• **Track your missed calls for one week** – Check your phone system logs or use call tracking software to count total missed calls during business hours.\n\n• **Calculate your average customer value** – Add up last month's revenue and divide by the number of customers served to get your baseline per-customer worth.\n\n• **Apply the 20% conversion rate** – Industry data shows roughly 1 in 5 callers will book services, so multiply missed calls by 0.20 to estimate lost opportunities.\n\n• **Multiply for monthly impact** – Take weekly missed calls × 4.3 weeks × conversion rate × average customer value for your true monthly loss.\n\n• **Deploy AI voice bots as your safety net** – They answer every call 24/7, capture leads, and book appointments while you focus on serving customers.",
+    "newsRoundup": "# This Week in AI\n\n**GPT-4 Class AI Costs Plummet, Opening Floodgates for Small Businesses**\nAI inference costs have collapsed from $0.03 per 1,000 tokens to fractions of that price, driving small business AI adoption from 40% to 58%+ in 2025, with the chatbot market projected to reach $41 billion by 2033.\n• Why it matters: Small businesses can now afford 24/7 AI support without hiring staff, instantly competing with enterprise-level customer service.\n\n**OpenAI Launches Autonomous Workspace Agents for Business Teams**\nChatGPT's new workspace agents for Business and Enterprise users can autonomously execute multi-step processes like gathering web feedback and generating Slack reports, shifting from chat to functional productivity platform.\n• Why it matters: This transforms AI from conversation tool to business operating system.\n\n**Voice AI Delivers 96% Customer Satisfaction for Small Business Operations**\nEnterprise deployments show 72% of organizations achieved measurable productivity gains, with businesses seeing 30-40% cost reductions and up to 80% lower operational costs.\n• Why it matters: Voice AI solves the critical problem of missing 62% of incoming calls during business hours.",
+    "toolOfWeek": "🛠️ **Calendly** — Seamless appointment scheduling that integrates perfectly with AI chatbots.\n\n• Automates booking, rescheduling, and cancellations while syncing with your calendar and sending confirmations\n• Local dentist's AI chatbot qualifies patients, then hands off to Calendly for instant appointment booking during the conversation\n• Set buffer times between appointments in your Calendly settings to account for cleanup or prep time between customers",
+    "statOfWeek": "📊 **Small and medium-sized enterprises are growing in AI chatbot adoption at the fastest rate, with a 25.1% CAGR** — [Nextiva](https://www.nextiva.com/blog/conversational-ai-statistics.html)\n\n• SMBs are rapidly closing the AI adoption gap—small business usage reached 8.8% while large business adoption actually declined slightly to 10.5%\n• 91% of SMBs with AI say it boosts revenue, creating competitive pressure for adoption\n• Companies implementing AI chatbots save an average of $2.5 million annually through reduced costs and efficiency",
+    "spotlight": "**Why AI Bots Matter for Every Business**\n\nEvery missed interaction costs your business real money and growth opportunities.\n\n• **Hidden drain**: 27% of calls go unanswered, with each missed call costing small businesses $1,200 in lost revenue annually\n• **24/7 lead capture**: AI chatbots convert website visitors into qualified leads even when you're sleeping or in meetings\n• **End phone tag forever**: AI voice bots handle appointment scheduling, follow-ups, and customer inquiries without the back-and-forth\n• **Time = money**: Save 5 hours weekly on repetitive tasks—that's $15,000+ in recovered productivity for most businesses\n\nStop letting opportunities slip through the cracks while competitors automate their way ahead."
+  },
+  "blogSlug": "issue-3",
+  "mcId": "23048e4fa5",
+  "ghPublished": false,
+  "selCtas": [
+    {
+      "label": "AI Voice Bot",
+      "price": "$1,000 + $149/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact"
+    }
+  ],
+  "brandName": "JB.AI",
+  "newsletterName": "The JB.AI Weekly",
+  "backed_up": "2026-04-26T04:38:26.564Z"
+}
