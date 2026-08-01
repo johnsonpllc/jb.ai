@@ -1,7 +1,18 @@
 {
   "brand": "JB.AI",
-  "updated": "2026-07-17T01:30:07.000Z",
+  "updated": "2026-08-01T02:15:08.000Z",
   "issues": [
+    {
+      "id": 1785550508337,
+      "issueNumber": 8,
+      "date": "2026-08-01T02:15:08.000Z",
+      "subject": "The JB.AI Weekly #8: Verify Pi cron reads this from Hostinger",
+      "slug": "issue-8",
+      "spotlight": "🌐 General — AI Benefits for Any Business",
+      "ctas": "AI Chatbot",
+      "mcId": "514a541470",
+      "ghPublished": true
+    },
     {
       "id": 1784251807938,
       "issueNumber": 7,
