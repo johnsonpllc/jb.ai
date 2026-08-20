@@ -1,7 +1,18 @@
 {
   "brand": "JB.AI",
-  "updated": "2026-08-01T05:16:59.289Z",
+  "updated": "2026-08-20T04:40:09.000Z",
   "issues": [
+    {
+      "id": 1787200809212,
+      "issueNumber": 8,
+      "date": "2026-08-20T04:40:09.000Z",
+      "subject": "The JB.AI Weekly #8: How a small Orange County yoga studio added $40K/year w...",
+      "slug": "issue-8",
+      "spotlight": "Fitness & Wellness",
+      "ctas": "AI Chatbot",
+      "mcId": "62fc7d95c4",
+      "ghPublished": true
+    },
     {
       "id": 1784251807938,
       "issueNumber": 7,
