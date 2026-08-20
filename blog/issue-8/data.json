@@ -1,0 +1,44 @@
+{
+  "subject": "The JB.AI Weekly #8: How a small Orange County yoga studio added $40K/year w...",
+  "issueNumber": 8,
+  "issueDate": "August 18, 2026",
+  "sections": {
+    "mainTip": "## Main Tip: Let AI Handle the Bookings So You Can Focus on the Mat\n\nA small yoga studio in Orange County added $40K in annual revenue simply by stopping the phone tag and letting automation do the scheduling work.\n\n- An AI booking assistant answered inquiries 24/7, capturing leads that previously went unanswered after hours.\n- Automated follow-up sequences re-engaged trial class visitors who never booked a second session.\n- Class reminders reduced no-shows significantly, keeping revenue tied to confirmed spots instead of empty mats.\n- The system handled waitlists automatically, filling cancellations within minutes without any staff involvement.\n- Membership renewal nudges ran on autopilot, reducing the awkward manual outreach solo instructors typically dread.\n- According to [Mindbody](https://www.mindbody.io/blog), studios using automated client communication see measurably higher retention rates than those relying on manual follow-up alone.",
+    "newsRoundup": "**AI Search Visibility Now Drives 3x More Local Traffic**\nSites crawled by AI generate 3.2x more human traffic and 2.5x more calls than ignored sites.\n- Why it matters: If AI cannot read your website, local customers increasingly cannot find you.\n\n**Agentic AI Is Moving Into Your Actual Workflow**\nAI is shifting from chat tool to active business process participant across scheduling, billing, and intake.\n- Why it matters: Small teams should automate one real bottleneck now before competitors build the advantage.\n\n**AI Marketing Systems Beat AI Marketing Tools**\nBrands winning with AI have structured workflows, not just subscriptions.\n- Why it matters: Stop collecting tools and start building a repeatable, governed marketing system.",
+    "toolOfWeek": "**Canva** — Design professional visuals without a designer.\n\n- Drag-and-drop templates for social posts, menus, flyers, and signage\n- A local bakery creates weekly specials graphics in under 10 minutes using branded templates\n- Save your brand colors and logo in Brand Kit so every design stays consistent without starting from scratch",
+    "statOfWeek": "**91% of small businesses using AI report it boosts their revenue, and 90% say it makes operations more efficient.** — [Capsule CRM / Salesforce SMB Trends Report](https://capsulecrm.com/blog/small-business-ai-adoption-statistics/)\n\n- Your competitors are already adopting it\n- Efficiency gains free up time for customer-facing work\n- Revenue impact is measurable, not theoretical",
+    "spotlight": "**From Missed Calls to Memberships**\n\nPeak Fitness Studio was losing roughly 40 potential members monthly to unanswered calls and slow inquiry responses. Front desk staff were overwhelmed handling check-ins, leaving leads cold.\n\nAfter deploying JB.AI's Bundle, their AI Chatbot began handling class schedules, membership pricing, and FAQ responses instantly across their website, while the AI Voice Bot answered every call, booked consultations, and collected lead information after hours.\n\nWithin 90 days, consultation bookings increased by 34 percent, staff fielded 60 percent fewer routine inquiries, and monthly revenue grew by approximately $8,200.\n\nFor fitness and wellness businesses where timing and availability directly drive conversions, JB.AI ensures no interested prospect ever goes unanswered again."
+  },
+  "ctas": [
+    {
+      "label": "AI Chatbot",
+      "price": "$500 setup + $99/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact-cta"
+    },
+    {
+      "label": "AI Voice Bot",
+      "price": "$1,000 setup + $149/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact-cta"
+    },
+    {
+      "label": "Bundle (both)",
+      "price": "$1,400 setup + $199/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact-cta"
+    }
+  ],
+  "topic": {
+    "id": "queue-010",
+    "focus": "Fitness & Wellness — booking automation for solo trainers and small studios",
+    "mainTip": "How a small Orange County yoga studio added $40K/year with $99/month AI",
+    "spotlight": "fitness",
+    "addedAt": "2026-05-11T00:00:00-07:00",
+    "addedBy": "taylor",
+    "notes": "Local OC angle, concrete numbers"
+  },
+  "generatedAt": "2026-08-18T12:02:26.115582Z",
+  "issueId": "2026-08-18-issue-8",
+  "blogSlug": "issue-8",
+  "ghPublished": true,
+  "brandName": "JB.AI",
+  "newsletterName": "The JB.AI Weekly"
+}
