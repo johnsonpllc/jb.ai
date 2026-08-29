@@ -1,0 +1,44 @@
+{
+  "subject": "The JB.AI Weekly #9: Why FAQ automation should come before sales automation",
+  "issueNumber": 9,
+  "issueDate": "August 25, 2026",
+  "sections": {
+    "mainTip": "## Main Tip: Automate Your Inbox Before Your Sales Funnel\n\nMost small business owners rush to automate lead generation, but there is a faster win sitting right in your inbox.\n\n- Your team is likely answering the same 8-10 questions every single day, which is time that could go elsewhere.\n- FAQ automation reduces response time to seconds, and faster replies directly improve conversion rates without a single sales tool involved.\n- According to [Tidio](https://www.tidio.com/blog/chatbot-statistics/), 62% of consumers prefer chatbots over waiting for a human agent for simple questions.\n- Setting up a basic FAQ responder takes a few hours, not weeks, and requires no technical background.\n- Start by logging every repeated question for one week, then build your automation around that actual list.\n- Sales automation works better when customers already feel heard and informed before they even reach your funnel.",
+    "newsRoundup": "**Meta Launches AI Tools Built Specifically for Small Business Owners**\nMeta now connects Instagram, Facebook, and Google Workspace into one AI-powered dashboard for entrepreneurs.\n- Why it matters: Free competitive analysis and content insights level the playing field for businesses without dedicated marketing staff.\n\n**Small Businesses See Real AI Results, But Timelines Are Slower Than Advertised**\nMost businesses see efficiency gains in 60 to 120 days, not overnight.\n- Why it matters: Starting with one narrow task produces the most reliable, measurable wins.\n\n**AI Adoption Among Small Businesses Hits Record Speed**\n77% of small businesses now use AI regularly, saving an average of 5.6 hours weekly.\n- Why it matters: Measuring results carefully separates real gains from expensive guesswork.",
+    "toolOfWeek": "**Canva** — Design professional visuals without a designer.\n\n- Drag-and-drop tool for creating social posts, menus, flyers, and branded materials\n- A local bakery uses it to turn AI-generated promotion ideas into polished Instagram graphics in minutes\n- Use the Brand Kit feature to lock in your fonts and colors so every design stays consistent without starting from scratch",
+    "statOfWeek": "**91% of small businesses using AI report it boosts their revenue, and 90% say it makes their operations more efficient.** — [Capsule CRM](https://capsulecrm.com/blog/small-business-ai-adoption-statistics/)\n\n- Your competitors are already using it\n- Revenue and efficiency gains are not reserved for big brands\n- Starting small, even one tool, still moves the needle",
+    "spotlight": "**Why AI Bots Matter for Every Business**\n\nMiss a call, miss a customer — it is that simple.\n\n- Businesses miss up to 62% of incoming calls, losing thousands in potential revenue monthly\n- AI Chatbots engage website visitors instantly, capturing leads at 2am as easily as 2pm\n- AI Voice Bots answer, qualify, and route calls without hold times or voicemail\n- Five hours saved weekly equals 260 hours annually — nearly seven full work weeks returned to your team\n- That recovered time converts directly into growth, follow-up, and revenue\n\nThe businesses winning tomorrow are automating the basics today."
+  },
+  "ctas": [
+    {
+      "label": "AI Chatbot",
+      "price": "$500 setup + $99/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact-cta"
+    },
+    {
+      "label": "AI Voice Bot",
+      "price": "$1,000 setup + $149/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact-cta"
+    },
+    {
+      "label": "Bundle (both)",
+      "price": "$1,400 setup + $199/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact-cta"
+    }
+  ],
+  "topic": {
+    "id": "queue-011",
+    "focus": "The first thing every small business should automate (it's not what you think)",
+    "mainTip": "Why FAQ automation should come before sales automation",
+    "spotlight": "general",
+    "addedAt": "2026-05-11T00:00:00-07:00",
+    "addedBy": "taylor",
+    "notes": "Contrarian, easy to skim"
+  },
+  "generatedAt": "2026-08-25T12:02:20.084199Z",
+  "issueId": "2026-08-25-issue-9",
+  "blogSlug": "issue-9",
+  "ghPublished": true,
+  "brandName": "JB.AI",
+  "newsletterName": "The JB.AI Weekly"
+}
