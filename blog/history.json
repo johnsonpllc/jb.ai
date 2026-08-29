@@ -1,7 +1,18 @@
 {
   "brand": "JB.AI",
-  "updated": "2026-08-20T04:40:09.000Z",
+  "updated": "2026-08-29T00:20:09.000Z",
   "issues": [
+    {
+      "id": 1787962809275,
+      "issueNumber": 9,
+      "date": "2026-08-29T00:20:09.000Z",
+      "subject": "The JB.AI Weekly #9: Why FAQ automation should come before sales automation",
+      "slug": "issue-9",
+      "spotlight": "General — AI Benefits for Any Business",
+      "ctas": "AI Chatbot",
+      "mcId": "d4269f71ac",
+      "ghPublished": true
+    },
     {
       "id": 1787200809212,
       "issueNumber": 8,
