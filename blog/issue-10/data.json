@@ -1,0 +1,44 @@
+{
+  "subject": "The JB.AI Weekly #10: Replacing the 15-minute discovery call with smart intak...",
+  "issueNumber": 10,
+  "issueDate": "September 1, 2026",
+  "sections": {
+    "mainTip": "## Main Tip: Ditch the Discovery Call for Smart Intake\n\nStop trading 15 billable minutes to answer questions your intake form could handle automatically.\n\n- Replace your discovery call with a conditional intake form (Typeform or Jotform work well) that branches based on client type, matter complexity, or service needed.\n- Use an AI tool like ChatGPT or Claude to analyze submitted responses and draft a personalized follow-up email before you ever read the form yourself.\n- Flag high-value or complex matters automatically using keyword triggers, so you know exactly which prospects actually need a live conversation.\n- According to [Clio's 2023 Legal Trends Report](https://www.clio.com/resources/legal-trends/2023-report/), clients expect faster responses — automated follow-up within minutes sets you apart immediately.\n- Reserve live calls only for engagements above a set revenue threshold or complexity level you define.",
+    "newsRoundup": "**Solo Operators Are Running Entire Businesses With AI**\n77% of U.S. small and midsize businesses now use AI regularly, with many lean teams replacing entire workflows.\n- Why it matters: The barrier to entry is gone, and your competitors are already moving.\n\n**Small Businesses Are Building AI \"Stacks\"**\nThe average small business uses five AI tools, with marketing, communication, and admin as the top use cases.\n- Why it matters: Success now depends on how your tools connect, not just which ones you pick.\n\n**The Real ROI on AI Agents**\nMcKinsey reports a 3.7x average ROI, but results take 30 to 90 days and require intentional training.\n- Why it matters: Slow and structured beats fast and sloppy every time.",
+    "toolOfWeek": "**Canva** — Design professional visuals without a designer.\n\n- Drag-and-drop tool for creating social posts, flyers, menus, and branded materials\n- A local bakery uses it to build weekly special boards that match their brand colors exactly\n- Use the Brand Kit feature to lock in your fonts and logo so every design stays consistent",
+    "statOfWeek": "**91% of small businesses using AI report it boosts revenue, and 90% say it improves efficiency.** — [Salesforce SMB Research](https://www.usecarly.com/blog/small-business-ai-statistics/)\n\n- Your competitors are already using it\n- The ROI is real, not theoretical\n- Starting with one task — email, scheduling, or marketing copy — is enough to begin",
+    "spotlight": "**From Missed Calls to Managed Caseloads**\n\nHartwell Legal & Tax Advisory was losing prospective clients every weekend. Calls went to voicemail, website visitors left without answers, and Monday mornings meant a backlog of unqualified leads.\n\nAfter deploying JB.AI's Bundle, the firm's AI Voice Bot now answers calls around the clock, gathering case details and scheduling consultations automatically. The AI Chatbot handles website inquiries, qualifying visitors and answering common questions about fees and timelines.\n\nWithin 90 days, Hartwell saw after-hours appointment bookings increase by 34 percent, front-desk call volume drop by 41 percent, and average lead response time fall from 11 hours to under 2 minutes.\n\nTheir attorneys stopped chasing leads. They started closing them."
+  },
+  "ctas": [
+    {
+      "label": "AI Chatbot",
+      "price": "$500 setup + $99/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact-cta"
+    },
+    {
+      "label": "AI Voice Bot",
+      "price": "$1,000 setup + $149/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact-cta"
+    },
+    {
+      "label": "Bundle (both)",
+      "price": "$1,400 setup + $199/mo",
+      "link": "https://tmjpllc.com/jb.ai/#contact-cta"
+    }
+  ],
+  "topic": {
+    "id": "queue-012",
+    "focus": "Legal & Accounting — client intake that doesn't burn billable hours",
+    "mainTip": "Replacing the 15-minute discovery call with smart intake forms + AI follow-up",
+    "spotlight": "legal",
+    "addedAt": "2026-05-11T00:00:00-07:00",
+    "addedBy": "taylor",
+    "notes": "Professional services, time-as-money framing"
+  },
+  "generatedAt": "2026-09-01T12:02:08.749365Z",
+  "issueId": "2026-09-01-issue-10",
+  "blogSlug": "issue-10",
+  "ghPublished": true,
+  "brandName": "JB.AI",
+  "newsletterName": "The JB.AI Weekly"
+}
