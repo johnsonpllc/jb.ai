@@ -1,7 +1,18 @@
 {
   "brand": "JB.AI",
-  "updated": "2026-08-29T00:20:09.000Z",
+  "updated": "2026-09-07T18:15:09.000Z",
   "issues": [
+    {
+      "id": 1788804909526,
+      "issueNumber": 10,
+      "date": "2026-09-07T18:15:09.000Z",
+      "subject": "The JB.AI Weekly #10: Replacing the 15-minute discovery call with smart intak...",
+      "slug": "issue-10",
+      "spotlight": "Legal & Accounting",
+      "ctas": "AI Chatbot",
+      "mcId": "727768fa43",
+      "ghPublished": true
+    },
     {
       "id": 1787962809275,
       "issueNumber": 9,
